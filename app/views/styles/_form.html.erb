@@ -1,0 +1,114 @@
+<section class="colon14">
+  <% @name ="Post a Style" %>
+        
+<%= form_for(@style, :html => {:class => 'register-form'}) do |f| %>
+  <% if @style.errors.any? %>
+    <div id="error_explanation" class="alert alert-danger alert-dismissable">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <h4><%= pluralize(@style.errors.count, "error") %> prohibited this style from being saved:</h4>
+
+      <ul>
+      <% @style.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+        <!-- START CONTENT AND SIDEBAR -->
+        <div class="container general">
+        
+            <div id="content" class="single col-lg-10 col-md-10 col-sm-10">
+
+			<div class="clearfix"></div>
+           
+            
+              <div class="col-sm-12 col-lg-10 col-lg-offset-3">
+                <p class="lead text-muted">Post a Style</p>
+                <form class="form-horizontal">
+                  <div class="form-group">
+                    <div class="col-lg-10">
+  
+                     <div class="form-group"> 
+                        <%= f.text_field :name, class:'form-control', placeholder: 'Name' %>
+                      </div>
+                      <div class="form-group">
+                        <%= f.text_area :description, class:'form-control', placeholder: 'Description' %>
+                       </div>
+                      <div class="form-group">
+                        <%= f.file_field :image1, class:'form-control', placeholder: 'Title' %>
+                       </div>
+                      <%= f.submit class:"btn btn-primary" %>
+                      <br>
+                      <%= link_to 'Back', styles_path %>
+                    </div>
+                  </div>
+                  
+                </form>          
+              </div>
+
+			<div class="clearfix"></div>
+            
+            
+            
+
+            </div><!-- end content -->
+            
+        </div><!-- end container -->
+	
+    <!-- END CONTENT AND SIDEBAR -->
+  <% end %>
+  
+	</section><!-- end colon1 -->
+
+
+
+<%= form_for(@style) do |f| %>
+  <% if @style.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@style.errors.count, "error") %> prohibited this style from being saved:</h2>
+
+      <ul>
+      <% @style.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label :image1 %><br>
+    <%= f.text_field :image1 %>
+  </div>
+  <div class="field">
+    <%= f.label :image2 %><br>
+    <%= f.text_field :image2 %>
+  </div>
+  <div class="field">
+    <%= f.label :image3 %><br>
+    <%= f.text_field :image3 %>
+  </div>
+  <div class="field">
+    <%= f.label :image4 %><br>
+    <%= f.text_field :image4 %>
+  </div>
+  <div class="field">
+    <%= f.label :poster_id %><br>
+    <%= f.text_field :poster_id %>
+  </div>
+  <div class="field">
+    <%= f.label :stylist_id %><br>
+    <%= f.text_field :stylist_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

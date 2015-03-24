@@ -1,0 +1,49 @@
+    <section class="colon14">
+
+      <% @name="Hair Gallery" %>       
+      
+<%= link_to 'New Style', new_style_path, class:"btn btn-primary btn-lg"%>
+
+        <!-- START CONTENT AND SIDEBAR -->
+        <div class="container general">
+            <div id="content" class="single col-lg-12 col-md-12 col-sm-12">
+
+                <div class="message text-center">
+                    <h2>Let's see all example <span>portfolio</span> items below</h2>
+                    <p> Lorem ipsum <a href="#">dolor sit amet</a>, consectetur adipisicing elit. Suscipit illo voluptas aperiam repudiandae impedit quidem.</p>
+                </div>
+              
+  <% @styles.each do |style| %>    
+                <div class="col-lg-3 col-md-3 col-sm-6">
+                	<div class="portfolio-columns">
+                    <%= link_to(style,  "data-no-turbolink" => true) do %>                  
+                      <%= cl_image_tag(style.image1, :width => 250, :height => 250,  :crop => :fill, :gravity => :face) %>
+                    <div>
+                      <br><br>
+                    <h5><%= style.name %></h5>
+                    </div>
+                    <%end %>
+                   </div>
+                </div>
+    <% end %>            
+            
+                
+				<div class="clearfix"></div>
+                
+                <ul class="pagination">
+                  <li><a href="#">«</a></li>
+                  <li class="active"><a href="#">1</a></li>
+                  <li><a href="#">2</a></li>
+                  <li><a href="#">3</a></li>
+                  <li><a href="#">4</a></li>
+                  <li><a href="#">5</a></li>
+                  <li><a href="#">»</a></li>
+                </ul>
+                
+			</div><!-- end content -->
+        </div><!-- end container -->
+	
+    <!-- END CONTENT -->
+    
+	</section><!-- end colon1 -->
+

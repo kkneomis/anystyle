@@ -1,0 +1,47 @@
+<% @name= @style.name %>
+<section class="colon14">
+
+        <!-- START CONTENT AND SIDEBAR -->
+        <div class="container general">
+            <div id="content" class="single-portfolio">
+                
+            	<div class="col-lg-4 col-md-4 col-sm-12">
+                    <div id="myCarousel" class="carousel slide">
+                      <div class="carousel-inner">
+                        <!-- Slide 1 -->
+                        <div class="item active">
+                          <%= cl_image_tag(@style.image1, :height => 600, :crop => :scale ) %>
+                        </div>
+                        <!-- Slide 2 -->
+                        <div class="item">
+                          <%= cl_image_tag(@style.image1, :height => 600, :crop => :scale ) %>
+                        </div>
+                        
+                      </div>
+                      <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                        <span class="icon-prev"></span>
+                      </a>
+                      <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                      <span class="icon-next"></span>  
+                      </a>
+                    </div>  
+                </div> 
+                
+            	<div class="col-lg-4 col-md-4 col-sm-12">
+               	<h2 class="general-title">
+                    	<span><%= @style.name %></span>
+                    </h2>
+                    <p><%= @style.description %></p>
+                    <p><%= @style.poster_id %></p>
+
+					<hr> 
+                           
+                    <div class="clearfix"></div>
+                        
+                </div><!-- end col-4 -->
+                
+            </div><!-- content -->
+        </div><!-- end general -->
+                
+	</section><!-- end colon14 -->
+

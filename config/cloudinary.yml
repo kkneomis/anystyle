@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: anystyle
+  api_key: '674664957246198'
+  api_secret: OnhLdew5mD7c8U3xPbAvwZKgiRQ
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: anystyle
+  api_key: '674664957246198'
+  api_secret: OnhLdew5mD7c8U3xPbAvwZKgiRQ
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: anystyle
+  api_key: '674664957246198'
+  api_secret: OnhLdew5mD7c8U3xPbAvwZKgiRQ
+  enhance_image_tag: true
+  static_image_support: false

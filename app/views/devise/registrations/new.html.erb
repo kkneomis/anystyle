@@ -1,0 +1,52 @@
+<section class="colon14">
+  <% @name ="Sign Up" %>
+        
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+        <!-- START CONTENT AND SIDEBAR -->
+        <div class="container general">
+        
+            <div id="content" class="single col-lg-10 col-md-10 col-sm-10">
+
+			<div class="clearfix"></div>
+           
+            
+              <div class="col-sm-12 col-lg-10 col-lg-offset-3">
+                <p class="lead text-muted">Sign Up</p>
+                <form class="form-horizontal">
+                  <div class="form-group">
+                    <div class="col-lg-10">
+  
+                     <div class="form-group"> 
+                        <%= f.text_field :email, required: true, autofocus: true,class:"form-control", placeholder:"Enter your email address" %>
+                      </div>
+                      <div class="form-group">
+                        <%= f.password_field :password, required: true,class:"form-control", placeholder:"Enter your password", hint: ("#{@minimum_password_length} characters minimum" if @validatable) %>       
+                       </div>
+                      <div class="form-group">
+                        <%= f.password_field :password_confirmation, required: true ,class:"form-control", placeholder:"Confirm your password"%>
+                       </div>
+                        <%= f.submit "Sign up", class:"btn btn-primary" %>
+                      <br><%= render "devise/shared/links" %>
+                    </div>
+                  </div>
+                  
+                </form>          
+              </div>
+
+			<div class="clearfix"></div>
+            
+            
+            
+
+            </div><!-- end content -->
+            
+        </div><!-- end container -->
+	
+    <!-- END CONTENT AND SIDEBAR -->
+    
+	</section><!-- end colon1 -->
+<% end %>
+
+
+

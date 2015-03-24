@@ -1,0 +1,93 @@
+
+<div class="topbar">
+            <div class="container">
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <p class="tagline">Call us : +90 532 02 02 // Email us : hello@designingmedia.com</p>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <ul class="dm-social">
+                        <li><a href="#" data-toggle="tooltip" data-placement="bottom" class="icon-facebook" title="Facebook">Facebook</a></li>
+                        <li><a href="#" data-toggle="tooltip" data-placement="bottom" class="icon-google-plus" title="Google+">Google+</a></li>
+                        <li><a href="#" data-toggle="tooltip" data-placement="bottom" class="icon-twitter" title="Twitter">Twitter</a></li>
+                        <li><a href="#" data-toggle="tooltip" data-placement="bottom" class="icon-pinterest" title="Pinterest">Pinterest</a></li>
+                        <li><a href="#" data-toggle="tooltip" data-placement="bottom" class="icon-linkedin" title="Linkedin">Linkedin</a></li>
+                        <li><a href="#" data-toggle="tooltip" data-placement="bottom" class="icon-rss" title="Feedburner">RSS</a></li>
+                    </ul><!-- End Social --> 
+                </div>
+            </div>
+        </div><!-- /topbar -->
+
+      <header class="header-wrapper">
+		<div class="container">
+            	<div class="col-lg-2 col-md-2 col-sm-2">
+                   <a class="navbar-brand" href="/"><i class="fa fa-scissors"></i> AnyStyle</a>
+                </div>
+            	<div class="col-lg-10 col-md-10 col-sm-12">
+                          <nav class="navbar navbar-default fhmm" role="navigation">
+                        <div class="navbar-header">
+                            <button type="button" data-toggle="collapse" data-target="#defaultmenu" class="navbar-toggle"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+                        </div><!-- end navbar-header -->
+                        <div id="defaultmenu" class="navbar-collapse collapse container">
+                            <ul class="nav navbar-nav">
+                                <li><a href="/" ><i class="icon-home"></i> Home</a>
+                                </li><!-- end standard drop down -->
+                                <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Styles <b class="caret"></b></a>
+                                    <ul class="dropdown-menu" role="menu">
+                                      <li><%= link_to "Hair Gallery", styles_path %></li>
+                                        
+                                    </ul><!-- end dropdown-menu -->
+                                </li><!-- end standard drop down -->
+                                <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Pages <b class="caret"></b></a>
+                                    <ul class="dropdown-menu" role="menu">
+                                      <li></li>
+                                     
+                                      
+                                     
+                                       
+                                    </ul><!-- end dropdown-menu -->
+                                </li><!-- end standard drop down -->
+                                <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Stylists <b class="caret"></b></a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="#">Single Shop Full</a></li>
+                                        <li><a href="#">Single Shop Sidebar</a></li>
+                                       
+                                    </ul><!-- end dropdown-menu -->
+                                </li><!-- end standard drop down -->   
+                                <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Contests <b class="caret"></b></a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="#">Single Portfolio 1</a></li>
+                                        <li><a href="#">Single Portfolio 2</a></li>
+                                      
+                                    </ul><!-- end dropdown-menu -->
+                                </li><!-- end standard drop down -->  
+                                <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">About <b class="caret"></b></a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="#">Blog Left Sidebar</a></li>
+                                        <li><a href="#">Blog Right Sidebar</a></li>
+                                   
+                                    </ul><!-- end dropdown-menu -->
+                                </li><!-- end standard drop down -->  
+                                                                            
+                            </ul><!-- end nav navbar-nav -->
+                            <ul class="nav navbar-nav navbar-right">
+                                <% if user_signed_in? %>
+                                  <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Logged in as <%= current_user.email %> <span class="caret"></span></a>
+                                    <ul class="dropdown-menu" role="menu">
+                                      <li><%= link_to "Edit Profile", edit_user_registration_path  %></li>
+                                      <li><%= link_to "Log Out", destroy_user_session_path, method: :delete  %></li>
+                                    </ul>
+                                  </li>
+                                <% else %>
+                                  <li><%= link_to "Sign up", new_user_registration_path  %></li>
+                                  <li><i class="icon-sing-in-alt"></i><%= link_to "Log in", new_user_session_path  %></li>
+                                <% end %>
+                              
+                            </ul><!-- end nav navbar-nav navbar-right -->
+                        </div><!-- end #navbar-collapse-1 -->
+					</nav><!-- end navbar navbar-default fhmm -->
+			</div><!-- /col10 -->
+		</div><!-- /container -->
+    </header><!-- /header wrapper -->
+
+
