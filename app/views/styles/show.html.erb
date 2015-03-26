@@ -30,9 +30,16 @@
             	<div class="col-lg-4 col-md-4 col-sm-12">
                	<h2 class="general-title">
                     	<span><%= @style.name %></span>
+                  <p>Posted by <%= link_to @style.user.name , @style.user %></p>
                     </h2>
                     <p><%= @style.description %></p>
-                    <p><%= @style.poster_id %></p>
+                    
+             
+                    <p><%= link_to "like post", like_style_path(@style), method: :put %></p>
+                <% if current_user.voted_up_on? @style %>
+                <h1><%= @style.votes_for.size%></h1>
+                <% end %>
+                    <%= link_to "Back", styles_path %>
 
 					<hr> 
                            

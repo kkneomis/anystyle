@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :styles
+  resources :users
+
+   
+  resources :styles do
+    member do
+      put "like", to: "styles#vote"
+    end
+  end
 
   root 'pages#home'
 

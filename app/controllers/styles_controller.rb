@@ -1,6 +1,7 @@
 class StylesController < ApplicationController
-  before_action :set_style, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_style, only: [:show, :edit, :update, :destroy, :vote]
+  before_filter :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_filter :check_user, only: [:edit, :update, :destroy]
   # GET /styles
   # GET /styles.json
   def index
@@ -10,6 +11,10 @@ class StylesController < ApplicationController
   # GET /styles/1
   # GET /styles/1.json
   def show
+  end
+  
+  def vote
+    @style.liked_by current_user
   end
 
   # GET /styles/new
@@ -25,7 +30,7 @@ class StylesController < ApplicationController
   # POST /styles.json
   def create
     @style = Style.new(style_params)
-    @style.poster_id= current_user.id
+    @style.user_id= current_user.id
     respond_to do |format|
       if @style.save
         format.html { redirect_to @style, notice: 'Style was successfully created.' }
@@ -71,4 +76,11 @@ class StylesController < ApplicationController
     def style_params
       params.require(:style).permit(:name, :description, :image1, :image2, :image3, :image4, :poster_id, :stylist_id)
     end
+  
+   def check_user
+    if current_user != @listing.user
+      redirect_to root_url, alert: "Sorry, this listing belongs to someone else"\
+      end
+  end
+
 end

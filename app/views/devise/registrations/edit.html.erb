@@ -16,9 +16,18 @@
                 <form class="form-horizontal">
                   <div class="form-group">
                     <div class="col-lg-10">
-  
+                      <div class="form-group"> 
+                        <%= f.text_field :name, required: true, autofocus: true,class:"form-control", placeholder:"Type here to change your name" %>
+                      </div>
                      <div class="form-group"> 
-                        <%= f.text_field :email, required: true, autofocus: true,class:"form-control", placeholder:"Enter your email address" %>
+                        <%= f.text_field :email, required: true,class:"form-control", placeholder:"Type here to change your email address" %>
+                      </div>
+                      <div class="form-group"> 
+                        <%= f.text_area :bio, required: false,class:"form-control", placeholder:"Tell us about yourself!" %>
+                      </div>
+                      <div class="form-group"> 
+                        <%= f.label "Upload a profile picture" %>
+                        <%= f.file_field :image, required: false,class:"form-control" %>
                       </div>
                          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
                             <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>

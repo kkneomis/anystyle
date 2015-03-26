@@ -16,10 +16,14 @@
                 <form class="form-horizontal">
                   <div class="form-group">
                     <div class="col-lg-10">
-  
+                      <div class="form-group">  
+                        <%= f.text_field :name, required: true, autofocus: true,class:"form-control", placeholder:"What is your name?" %>
+                      </div>
                      <div class="form-group"> 
                         <%= f.text_field :email, required: true, autofocus: true,class:"form-control", placeholder:"Enter your email address" %>
                       </div>
+                      <%= f.hidden_field :bio, value: "Hello, I am a hair enthusiast. I have not yet updated my biography. I can do so by logging in and going to the 'edit profile' page"%>
+                      <%= f.hidden_field :image, value: "http://res.cloudinary.com/bisonshare/image/upload/v1426705998/https_www.leanstartupmachine.com_images_default_profile_photo_hjtmyk.png"%>
                       <div class="form-group">
                         <%= f.password_field :password, required: true,class:"form-control", placeholder:"Enter your password", hint: ("#{@minimum_password_length} characters minimum" if @validatable) %>       
                        </div>

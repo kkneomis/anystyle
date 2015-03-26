@@ -19,6 +19,7 @@ gem 'jquery-turbolinks'
 #gem 'unicorn'
 #gem 'newrelic_rpm'
 gem 'cloudinary'
+gem 'acts_as_votable', '~> 0.10.0'
 
 group :production do
 
