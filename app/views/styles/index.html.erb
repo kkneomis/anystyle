@@ -2,15 +2,14 @@
 
       <% @name="Hair Gallery" %>       
       
-<%= link_to 'New Style', new_style_path, class:"btn btn-primary btn-lg"%>
+
 
         <!-- START CONTENT AND SIDEBAR -->
         <div class="container general">
             <div id="content" class="single col-lg-12 col-md-12 col-sm-12">
 
                 <div class="message text-center">
-                    <h2>Let's see all example <span>portfolio</span> items below</h2>
-                    <p> Lorem ipsum <a href="#">dolor sit amet</a>, consectetur adipisicing elit. Suscipit illo voluptas aperiam repudiandae impedit quidem.</p>
+                    <h2>The most recent hairstyles on <span>AnyStyle</span></h2>
                 </div>
               
   <% @styles.each do |style| %>    
@@ -39,8 +38,8 @@
                   <li><a href="#">5</a></li>
                   <li><a href="#">»</a></li>
                 </ul>
-                
 			</div><!-- end content -->
+          <%= link_to 'New Style', new_style_path, class:"btn btn-primary btn-lg text-center"%>
         </div><!-- end container -->
 	
     <!-- END CONTENT -->

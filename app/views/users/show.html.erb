@@ -30,60 +30,35 @@
               <div class="col-sm-12 col-lg-12">
                 <div class="well">
                 	<ul>
-                    	<li><h5><a href="#">Activity</a></h5></li>
-                    	<li><h5><a href="#">Profile</a></h5></li>
-                    	<li><h5><a href="#">Friends <span class="label label-warning" data-effect="pop">12</span></a></a></h5></li>
-                    	<li><h5><a href="#">Groups <span class="label label-warning" data-effect="pop">4</span></a></a></h5></li>
-                    	<li><h5><a href="#">Forums</a></h5></li>
+                    	<li><h5>Member Since <span class="label label-warning" data-effect="pop"><%= @user.created_at.strftime("%b, %Y") %></span></h5></li>
+                    <li><h5>Posted<span class="label label-warning" data-effect="pop"><%= @user.styles.count %> </span>styles</h5></li>
+
                     </ul>
               <div class="clearfix"></div>
                 </div>
               </div>
 
-                <div class="shop-top">
-            
-            		<div class="col-lg-7 col-md-7 col-sm-12">
-                        <strong><a href="#"> <i class="icon-rss"></i> RSS</a></strong>
-					</div>
-                    
-                    <div class="pull-right col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                        <select class="form-control">
-                            <option value="activite" >Last activite</option>
-                            <option value="members" >Most members</option>
-                            <option value="created" >Newly created</option>
-                            <option value="alphabetical" >Alphabetical</option>
-                        </select>
-                    </div>
-                </div>
-        		
-                <div class="clearfix"></div>
                 
-               <ul class="buddy-activity">
+<ul class="buddy-activity">
 
 				<li>
-					<div class="buddy-group-blocks buddy-members">
-						<figure class="inverse">
-							<img class="avatar" src="http://res.cloudinary.com/bisonshare/image/upload/v1426705998/https_www.leanstartupmachine.com_images_default_profile_photo_hjtmyk.png" alt="" />
-						<figcaption>
-						<h3>Mark</h3>
-						<small>became a registered member - <a href="#" title="">8 months, 2 weeks ago</a></small><br>
-						</figcaption>
-						</figure>
+          <h3 class="text-center"> Styles shared by <%= @user.name %></h3>
+          <% @user.styles.each do |style| %>    
+                    <div class="col-lg-3 col-md-3 col-sm-6">
+                      <div class="portfolio-columns">
+                        <%= link_to(style,  "data-no-turbolink" => true) do %>                  
+                          <%= cl_image_tag(style.image1, :width => 250, :height => 250,  :crop => :fill, :gravity => :face) %>
+                        <div>
+                          <br><br>
+                        <h5><%= style.name %></h5>
+                        </div>
+                        <%end %>
+                       </div>
                     </div>
+            <% end %>       
 				</li>
 
-				<li>
-					<div class="buddy-group-blocks buddy-members">
-						<figure class="inverse">
-							<img class="avatar" src="http://res.cloudinary.com/bisonshare/image/upload/v1426705998/https_www.leanstartupmachine.com_images_default_profile_photo_hjtmyk.png" alt="" />
-						<figcaption>
-						<h3>Mark</h3>
-						<small>started the forum topic - <a href="#">What about you WordPress?</a> in the group <a href="#">WordPress</a>  <a href="#" title="">9 months, 2 weeks ago</a></small><br>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the...</p>
-						</figcaption>
-						</figure>
-                    </div>
-				</li>
+		
 			</ul>
 
                       
@@ -106,8 +81,8 @@
 				</h2>
                 	<div class="buddy-members">
                     	<ul>
-                        <% @user.find_voted_items.each do |style| %> 
-                        <li><%= cl_image_tag(style.image1) %></li>
+                        <% @user.find_voted_items.take(10).each do |style| %> 
+                        <li><%= link_to cl_image_tag(style.image1), style %></li>
                         <% end %>
                     		
                     	</ul>
@@ -116,92 +91,8 @@
 
 				<div class="clearfix"></div>
                 
-                <div class="widget">
-            	<h2 class="general-title">
-					<span>Active Groups</span>
-				</h2>
-                	<div class="buddy-members">
-                    	<ul>
-                    		<li><a href="#" title=""><img width="60" src="http://res.cloudinary.com/bisonshare/image/upload/v1426705998/https_www.leanstartupmachine.com_images_default_profile_photo_hjtmyk.png" class="avatar" alt=""></a></li>
-                    		<li><a href="#" title=""><img width="60" src="http://res.cloudinary.com/bisonshare/image/upload/v1426705998/https_www.leanstartupmachine.com_images_default_profile_photo_hjtmyk.png" class="avatar" alt=""></a></li>
-                    		<li><a href="#" title=""><img width="60" src="http://res.cloudinary.com/bisonshare/image/upload/v1426705998/https_www.leanstartupmachine.com_images_default_profile_photo_hjtmyk.png" class="avatar" alt=""></a></li>
-                    		<li><a href="#" title=""><img width="60" src="http://res.cloudinary.com/bisonshare/image/upload/v1426705998/https_www.leanstartupmachine.com_images_default_profile_photo_hjtmyk.png" class="avatar" alt=""></a></li>
-                    		<li><a href="#" title=""><img width="60" src="http://res.cloudinary.com/bisonshare/image/upload/v1426705998/https_www.leanstartupmachine.com_images_default_profile_photo_hjtmyk.png" class="avatar" alt=""></a></li>
-                    		<li><a href="#" title=""><img width="60" src="http://res.cloudinary.com/bisonshare/image/upload/v1426705998/https_www.leanstartupmachine.com_images_default_profile_photo_hjtmyk.png" class="avatar" alt=""></a></li>
-                    		<li><a href="#" title=""><img width="60" src="http://res.cloudinary.com/bisonshare/image/upload/v1426705998/https_www.leanstartupmachine.com_images_default_profile_photo_hjtmyk.png" class="avatar" alt=""></a></li>
-                    		<li><a href="#" title=""><img width="60" src="http://res.cloudinary.com/bisonshare/image/upload/v1426705998/https_www.leanstartupmachine.com_images_default_profile_photo_hjtmyk.png" class="avatar" alt=""></a></li>
-                    		<li><a href="#" title=""><img width="60" src="http://res.cloudinary.com/bisonshare/image/upload/v1426705998/https_www.leanstartupmachine.com_images_default_profile_photo_hjtmyk.png" class="avatar" alt=""></a></li>
-                    		<li><a href="#" title=""><img width="60" src="http://res.cloudinary.com/bisonshare/image/upload/v1426705998/https_www.leanstartupmachine.com_images_default_profile_photo_hjtmyk.png" class="avatar" alt=""></a></li>
-                    	</ul>
-                    </div>
-                </div>
 
-                <div class="widget">
-            	<h2 class="general-title">
-					<span>On the Forums</span>
-				</h2>
-                	<div class="buddy-members">
-						<ul>
-							<li class="forum-lastposts">	
-								<div class="forum-lastposts-avatar">
-                                	<a href="#" title="#" rel="nofollow">
-                                    	<img width="60" src="http://res.cloudinary.com/bisonshare/image/upload/v1426705998/https_www.leanstartupmachine.com_images_default_profile_photo_hjtmyk.png" class="avatar" alt="" />
-                                    </a>
-                                </div>
-		
-								<div class="activity-content">
-									<a href="#" class="activity-content-title" title="">Welcome to the community</a><br />
-                                    <div class="activity-content-details">
-                                        <a href="#" title="" class="" rel="nofollow">John</a>
-                                        <a href="#" title="">1 week ago</a>
-                                        in 
-                                        <a href="#">Emvato</a>									
-                                    </div>
-								</div>
-							</li>	
-                            
-							<li class="forum-lastposts">	
-								<div class="forum-lastposts-avatar">
-                                	<a href="#" title="#" rel="nofollow">
-                                    	<img width="60" src="http://res.cloudinary.com/bisonshare/image/upload/v1426705998/https_www.leanstartupmachine.com_images_default_profile_photo_hjtmyk.png" class="avatar" alt="" />
-                                    </a>
-                                </div>
-		
-								<div class="activity-content">
-									<a href="#" class="activity-content-title" title="">What about you new design?</a><br />
-                                    <div class="activity-content-details">
-                                        <a href="#" title="" class="" rel="nofollow">Robert</a>
-                                        <a href="#" title="">1 week ago</a>
-                                        in 
-                                        <a href="#">Emvato</a>									
-                                    </div>
-								</div>
-							</li>				
-                        </ul>
-                    </div><!-- buddy members -->
-                </div><!-- end widget -->
                 
-            	<div class="widget">
-                    <h2 class="general-title">
-                        <span>Tags</span>
-                    </h2>
-                    
-					<div class="tagcloud">
-						<a href="#" class="" title="12 topics">advice</a>
-						<a href="#" class="" title="2 topics">wordpress</a>
-						<a href="#" class="" title="21 topics">joomla</a>
-						<a href="#" class="" title="5 topics">blog</a>
-						<a href="#" class="" title="62 topics">cms</a>
-						<a href="#" class="" title="12 topics">drupal</a>
-						<a href="#" class="" title="88 topics">html5</a>
-						<a href="#" class="" title="15 topics">css3</a>
-						<a href="#" class="" title="31 topics">orange</a>
-						<a href="#" class="" title="16 topics">love to</a>
-						<a href="#" class="" title="32 topics">tutorials</a>
-						<a href="#" class="" title="12 topics">how to</a>
-						<a href="#" class="" title="44 topics">advice</a>
-					</div>
-                </div>
                 
             </div><!-- end sidebar -->
             
