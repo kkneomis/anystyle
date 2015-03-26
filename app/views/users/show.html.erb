@@ -80,12 +80,15 @@
                 <span>Styles <%= @user.name %> likes</span>
 				</h2>
                 	<div class="buddy-members">
-                    	<ul>
-                        <% @user.find_voted_items.take(10).each do |style| %> 
-                        <li><%= link_to cl_image_tag(style.image1), style %></li>
-                        <% end %>
-                    		
-                    	</ul>
+                    <ul>
+                           <li>  <% @user.find_voted_items.take(10).each do |style| %> 
+                               
+                                  <%= link_to cl_image_tag(style.image1), style, :with=> 60 %>
+                              
+                            <% end %></li>
+                    
+                      
+                   </ul>
                     </div>
                 </div>
 

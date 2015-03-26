@@ -25,23 +25,15 @@
                    </div>
                 </div>
     <% end %>            
-            
-                
-				<div class="clearfix"></div>
-                
-                <ul class="pagination">
-                  <li><a href="#">«</a></li>
-                  <li class="active"><a href="#">1</a></li>
-                  <li><a href="#">2</a></li>
-                  <li><a href="#">3</a></li>
-                  <li><a href="#">4</a></li>
-                  <li><a href="#">5</a></li>
-                  <li><a href="#">»</a></li>
-                </ul>
-			</div><!-- end content -->
-          <%= link_to 'New Style', new_style_path, class:"btn btn-primary btn-lg text-center"%>
+
+
         </div><!-- end container -->
-	
+         
+         <div class="text-center">      
+          <%= will_paginate @styles, renderer: BootstrapPagination::Rails %>  
+				    <div class="clearfix"></div> 
+          <%= link_to 'New Style', new_style_path, class:"btn btn-primary btn-lg text-center"%>\
+        </div>  	
     <!-- END CONTENT -->
     
 	</section><!-- end colon1 -->
