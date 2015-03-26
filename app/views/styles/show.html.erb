@@ -35,10 +35,19 @@
                     <p><%= @style.description %></p>
                     
              
-                    <p><%= link_to "like post", like_style_path(@style), method: :put %></p>
-                <% if current_user.voted_up_on? @style %>
-                <h1><%= @style.votes_for.size%></h1>
-                <% end %>
+                <p>
+                   <p>
+                     <% if user_signed_in? && (current_user.voted_for? @style) %>
+                        <%= link_to unlike_style_path(@style), method: :put do %>
+                            <i class='fa fa-heart'></i>
+                         <% end %>
+                     <% else %>
+                        <%= link_to like_style_path(@style), method: :put do %>
+                            <i class='fa fa-heart-o'></i>
+                        <% end %>
+                    <% end %>
+                    <%= @style.votes_for.size%> likes
+                </p>
                     <%= link_to "Back", styles_path %>
 
 					<hr> 

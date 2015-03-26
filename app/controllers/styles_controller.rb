@@ -1,6 +1,6 @@
 class StylesController < ApplicationController
-  before_action :set_style, only: [:show, :edit, :update, :destroy, :vote]
-  before_filter :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :set_style, only: [:show, :edit, :update, :destroy, :vote, :unvote]
+  before_filter :authenticate_user!, only: [:new, :create, :edit, :update, :destroy, :vote]
   before_filter :check_user, only: [:edit, :update, :destroy]
   # GET /styles
   # GET /styles.json
@@ -15,6 +15,12 @@ class StylesController < ApplicationController
   
   def vote
     @style.liked_by current_user
+    redirect_to @style
+  end
+  
+  def unvote
+    @style.unliked_by current_user
+    redirect_to @style
   end
 
   # GET /styles/new

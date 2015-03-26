@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :styles do
     member do
       put "like", to: "styles#vote"
+      put "unlike", to: "styles#unvote"
     end
   end
 
