@@ -102,20 +102,14 @@
                                 
                 <div class="widget">
             	<h2 class="general-title">
-					<span>Active Members</span>
+                <span>Styles <%= @user.name %> likes</span>
 				</h2>
                 	<div class="buddy-members">
                     	<ul>
-                    		<li><a href="#" title=""><img width="60" src="http://res.cloudinary.com/bisonshare/image/upload/v1426705998/https_www.leanstartupmachine.com_images_default_profile_photo_hjtmyk.png" class="avatar" alt=""></a></li>
-                    		<li><a href="#" title=""><img width="60" src="http://res.cloudinary.com/bisonshare/image/upload/v1426705998/https_www.leanstartupmachine.com_images_default_profile_photo_hjtmyk.png" class="avatar" alt=""></a></li>
-                    		<li><a href="#" title=""><img width="60" src="http://res.cloudinary.com/bisonshare/image/upload/v1426705998/https_www.leanstartupmachine.com_images_default_profile_photo_hjtmyk.png" class="avatar" alt=""></a></li>
-                    		<li><a href="#" title=""><img width="60" src="http://res.cloudinary.com/bisonshare/image/upload/v1426705998/https_www.leanstartupmachine.com_images_default_profile_photo_hjtmyk.png" class="avatar" alt=""></a></li>
-                    		<li><a href="#" title=""><img width="60" src="http://res.cloudinary.com/bisonshare/image/upload/v1426705998/https_www.leanstartupmachine.com_images_default_profile_photo_hjtmyk.png" class="avatar" alt=""></a></li>
-                    		<li><a href="#" title=""><img width="60" src="http://res.cloudinary.com/bisonshare/image/upload/v1426705998/https_www.leanstartupmachine.com_images_default_profile_photo_hjtmyk.png" class="avatar" alt=""></a></li>
-                    		<li><a href="#" title=""><img width="60" src="http://res.cloudinary.com/bisonshare/image/upload/v1426705998/https_www.leanstartupmachine.com_images_default_profile_photo_hjtmyk.png" class="avatar" alt=""></a></li>
-                    		<li><a href="#" title=""><img width="60" src="http://res.cloudinary.com/bisonshare/image/upload/v1426705998/https_www.leanstartupmachine.com_images_default_profile_photo_hjtmyk.png" class="avatar" alt=""></a></li>
-                    		<li><a href="#" title=""><img width="60" src="http://res.cloudinary.com/bisonshare/image/upload/v1426705998/https_www.leanstartupmachine.com_images_default_profile_photo_hjtmyk.png" class="avatar" alt=""></a></li>
-                    		<li><a href="#" title=""><img width="60" src="http://res.cloudinary.com/bisonshare/image/upload/v1426705998/https_www.leanstartupmachine.com_images_default_profile_photo_hjtmyk.png" class="avatar" alt=""></a></li>
+                        <% @user.find_voted_items.each do |style| %> 
+                        <li><%= cl_image_tag(style.image1) %></li>
+                        <% end %>
+                    		
                     	</ul>
                     </div>
                 </div>
