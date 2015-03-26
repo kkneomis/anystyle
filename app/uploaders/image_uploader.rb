@@ -3,12 +3,12 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   version :display do
     process :eager => true
-    process :resize_to_fill => [700, 700]
+    process :resize_to_scale => [700, 700]
   end
 
   version :thumbnail do
     process :eager => true
-    process :resize_to_fill => [250, 172, :face]
+    process :resize_to_fill => [250, 250, :face]
   end
 
 end
