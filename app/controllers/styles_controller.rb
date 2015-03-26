@@ -5,7 +5,7 @@ class StylesController < ApplicationController
   # GET /styles
   # GET /styles.json
   def index
-    @styles = Style.paginate(:page => params[:page], :per_page => 4)
+    @styles = Style.paginate(:page => params[:page], :per_page => 12)
   end
 
   # GET /styles/1
