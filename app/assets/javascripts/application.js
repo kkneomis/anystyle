@@ -12,14 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery.themepunch.plugins.min
-//= require jquery.themepunch.revolution.min
-//= require jquery.themepunch.revolution
+
 //= require simple
 //= require bootstrap.min
 //= require countdown
 //= require fhmm
-//= require grid
+// require grid
 //= require owl.carousel
 //= require jquery.easing.1.3
 //= require jquery.flexslider-min
@@ -28,7 +26,8 @@
 //= require jquery.prettyPhoto
 //= require jquery.transit.min
 //= require jquery.unveilEffects.min
-//= require modernizr.custom
+//= require Modernizr.custom
 //= require retina-1.1.0
+// require bootstrap-sprockets
 //= require turbolinks 
 //= require_tree .

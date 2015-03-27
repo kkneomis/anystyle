@@ -27,7 +27,7 @@
                     </div>  
                 </div> 
                 
-            	<div class="col-lg-4 col-md-4 col-sm-12">
+            	<div class="col-lg-8 col-md-8 col-sm-12">
                	<h2 class="general-title">
                     	<span><%= @style.name %></span>
                   <p>Posted by <%= link_to @style.user.name , @style.user %></p>
@@ -49,13 +49,37 @@
                     <%= @style.votes_for.size%> likes
                 </p>
                 <%= link_to "Back", styles_path %>
-
 					<hr> 
-                           
-                    <div class="clearfix"></div>
-                        
-                </div><!-- end col-4 -->
                 
+                
+                
+
+                    <div class="clearfix"></div>
+                
+                  
+                  <h4>Comments</h4>
+                <div class="form-group">
+                  <%= form_for Comment.new do |f|   %>
+                      <%= f.text_area  :content, class:"form-control", placeholder:"Enter your comment here!"%>
+                      <% if user_signed_in? %>
+                            <%= f.hidden_field :user_id, value: current_user.id %>
+                      <%end %>
+                      <%= f.hidden_field :style_id, value: @style.id %>
+                    <br>
+                      <%= f.submit "Submit this comment", class:"btn btn-primary" %>
+                     
+                    <% end %>
+                </div>
+               <div class="comments"> 
+                 
+                  <% @style.comments.order('created_at DESC').each do |com| %>
+                    <ul class="dm-sidebar-nav">
+                      <%= image_tag com.user.image.url(:thumbnail) %>
+                      <li><%= com.content  %><br> <small><%=com.user.name %> on <%= com.created_at.strftime("%b, %Y") %></small></li>
+                    </ul>
+                  <% end %>
+                </div>
+              </div> 
             </div><!-- content -->
         </div><!-- end general -->
                 

@@ -4,6 +4,7 @@ class Style < ActiveRecord::Base
   mount_uploader :image1, ImageUploader
   
   belongs_to :user
+  has_many :comments, dependent: :destroy
   
 
 end
