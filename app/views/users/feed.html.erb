@@ -1,7 +1,9 @@
     <section class="colon14">
-
-      <% @name="Hair Gallery" %>       
-      
+      <% if @user == current_user %>
+        <% @name="My Hair Feed" %>       
+      <% else %>
+      <% @name= @user.name + "'s Hair Feed" %>      
+      <% end %>
 
 
         <!-- START CONTENT AND SIDEBAR -->
@@ -9,10 +11,10 @@
             <div id="content" class="single col-lg-12 col-md-12 col-sm-12">
 
                 <div class="message text-center">
-                    <h2>The most recent hairstyles on <span>AnyStyle</span></h2>
+                  <h2><span><%= @user.name %>'s</span> hair feed</h2>
                 </div>
-              
-  <% @styles.each do |style| %>    
+
+              <% @feedstyles.each do |style| %>    
                 <div class="col-lg-3 col-md-3 col-sm-6">
                 	<div class="portfolio-columns">
                     <%= link_to(style,  "data-no-turbolink" => true) do %>                  
@@ -25,15 +27,11 @@
                    </div>
                 </div>
     <% end %>            
-
+ 
 
         </div><!-- end container -->
          
-         <div class="text-center">      
-          <%= will_paginate @styles, renderer: BootstrapPagination::Rails %>  
-				    <div class="clearfix"></div> 
-          <%= link_to 'New Style', new_style_path, class:"btn btn-primary btn-lg text-center"%>
-        </div>  	
+  
     <!-- END CONTENT -->
     
 	</section><!-- end colon1 -->

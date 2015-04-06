@@ -1,5 +1,10 @@
 class PagesController < ApplicationController
   def home
+    @name="Home"
+    if user_signed_in?
+      @name = "My Style Feed"
+      redirect_to feed_user_path(current_user)
+    end
   end
 
   def about
