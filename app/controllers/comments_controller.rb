@@ -24,6 +24,14 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     @comment.save
+    activity= Activity.create(params[:activity])
+    activity.actor_id = current_user.id
+    activity.action = " commented on a post by "
+    activity.object_id = @comment.style.id
+    activity.receiver_id= @comment.user.id
+    activity.content= @comment.content
+    activity.action_type= "comment"
+    activity.save
     redirect_to @comment.style
   end
 

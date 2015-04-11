@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
+  
+
   resources :comments
 
   devise_for :users
   
   resources :users do
+    resources :activities
+    
     member do
       put "follow", to: "users#follow"
       put "unfollow", to: "users#unfollow"

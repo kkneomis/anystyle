@@ -16,6 +16,13 @@ class StylesController < ApplicationController
   def vote
     @style.liked_by current_user
     redirect_to @style
+    activity= Activity.create(params[:activity])
+    activity.actor_id = current_user.id
+    activity.action = " liked a post from "
+    activity.object_id= @style.id
+    activity.receiver_id= @style.user.id
+    activity.action_type="like"
+    activity.save
   end
   
   def unvote

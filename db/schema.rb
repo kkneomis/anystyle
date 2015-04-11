@@ -11,7 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150401170549) do
+ActiveRecord::Schema.define(version: 20150411033851) do
+
+  create_table "activities", force: true do |t|
+    t.integer  "actor_id"
+    t.string   "action"
+    t.integer  "receiver_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "object_id"
+    t.string   "type"
+    t.string   "content"
+    t.string   "action_type"
+    t.integer  "post_id"
+  end
 
   create_table "comments", force: true do |t|
     t.string   "content"

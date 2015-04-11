@@ -11,18 +11,8 @@ class UsersController < ApplicationController
   end
   
   def feed
+    @activities = Activity.where(actor_id: @user.id)
 
-    @followings= @user.all_following
-    @allstyles=@user.styles
-    if @followings.empty?
-    else
-
-        @followings.each do |user|
-            @allstyles.append(user.styles)
-      end
-      
-      @feedstyles= @allstyles.order('created_at DESC')  
-    end
   end
 
 
@@ -30,11 +20,18 @@ class UsersController < ApplicationController
   def follow
     current_user.follow(@user)
     redirect_to @user
+    activity= Activity.create(params[:activity])
+    activity.actor_id = current_user.id
+    activity.action = " followed "
+    activity.receiver_id= @user.id
+    activity.action_type= "follow"
+    activity.save
   end
   
   def unfollow
     current_user.stop_following(@user)
     redirect_to @user
+
   end
   
  private

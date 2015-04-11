@@ -12,13 +12,13 @@
 							<figure class="inverse">
                 <%= cl_image_tag(@user.image.url(:thumbnail)) %>
                 <hr>
-                <% if user_signed_in? && current_user != @user %>
+                <% if (user_signed_in?) && (current_user != @user) %>
                   <% if current_user.following?(@user)%>
                      <%= link_to "Following", unfollow_user_path(@user), method: :put, class:"btn btn-primary btn-block text-center" %>
                    <% else %>
                       <%= link_to "Follow", follow_user_path(@user), method: :put, class:"btn btn-default btn-block text-center" %>
                    <% end %>
-                <% else %>
+                <% elsif  current_user != @user %>
                    <%= link_to "Follow", follow_user_path(@user), method: :put, class:"btn btn-default btn-block text-center" %>
                 <% end %>
                   

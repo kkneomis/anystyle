@@ -1,0 +1,21 @@
+<h1>Listing activities</h1>
+<ul class="dm-sidebar-nav">
+         
+  
+
+
+
+    <% @activities.each do |activity| %>
+        <% if activity.action_type == "comment" %>
+                <p><%= link_to User.find_by(id: activity.actor_id).name, User.find_by(id: activity.actor_id) %> commented "<%= activity.content %>" <%= link_to User.find_by(id: activity.receiver_id).name, User.find_by(id: activity.receiver_id) %></p>
+  
+        <% elsif activity.action_type == "like" %>
+            <p><%= link_to User.find_by(id: activity.actor_id).name, User.find_by(id: activity.actor_id) %> <%= activity.action %> <%= link_to User.find_by(id: activity.receiver_id).name, User.find_by(id: activity.receiver_id) %></p>
+    
+        <% elsif activity.action_type == "follow" %>
+             <p> <%= link_to User.find_by(id: activity.actor_id).name, User.find_by(id: activity.actor_id) %> <%= activity.action %> <%= link_to User.find_by(id: activity.receiver_id).name, User.find_by(id: activity.receiver_id) %> </p>
+        <% end %>
+
+      
+    <% end %>
+   </ul>
