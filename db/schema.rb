@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150411033851) do
+ActiveRecord::Schema.define(version: 20150412220856) do
 
   create_table "activities", force: true do |t|
     t.integer  "actor_id"
@@ -60,6 +60,10 @@ ActiveRecord::Schema.define(version: 20150411033851) do
     t.datetime "updated_at"
     t.integer  "user_id"
     t.integer  "make_id"
+    t.integer  "crop_x"
+    t.integer  "crop_y"
+    t.integer  "crop_w"
+    t.integer  "crop_h"
   end
 
   create_table "users", force: true do |t|

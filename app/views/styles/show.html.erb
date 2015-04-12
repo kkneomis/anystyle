@@ -10,7 +10,7 @@
                       <div class="carousel-inner">
                         <!-- Slide 1 -->
                         <div class="item active">
-                          <%= image_tag @style.image1.url(:display) %>
+                          <%= cl_image_tag(@style.image1,  :x => @style.crop_x, :y => @style.crop_y, :width => @style.crop_w, :height => @style.crop_h, :crop => :crop) %>
                         </div>
                         
                       </div>

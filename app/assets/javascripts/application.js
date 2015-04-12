@@ -28,6 +28,9 @@
 //= require jquery.unveilEffects.min
 //= require Modernizr.custom
 //= require retina-1.1.0
+//= require jquery.Jcrop
+//= require jquery.Jcrop.min
+//= require cloudinary
 // require bootstrap-sprockets
 //= require turbolinks 
 //= require_tree .

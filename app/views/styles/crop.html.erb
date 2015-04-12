@@ -1,0 +1,46 @@
+<% @name= "Cropping " + @style.name %>
+
+
+    <section class="colon14">
+        <!-- START CONTENT AND SIDEBAR -->
+        <div class="container general">
+            <div id="content" class="single col-lg-12 col-md-12 col-sm-12 text-center">
+                <h2>Cropping The Image</h2>
+              
+              <%= image_tag @style.image1.url, :id => "cropbox" %>
+
+              <%= form_for @style do |f| %>
+                <%= f.hidden_field :crop_x, :id => "crop_x" %>
+                <%= f.hidden_field :crop_y, :id => "crop_y" %>
+                <%= f.hidden_field :crop_h, :id => "crop_h" %>
+                <%= f.hidden_field :crop_w, :id => "crop_w" %>
+              <br>
+              <p><%= f.submit "Crop the Image!", class:"btn btn-primary btn-lg"%></p>
+              <% end %>
+              
+              
+        </div>  	
+    <!-- END CONTENT -->
+      </div>
+	</section><!-- end colon1 -->
+
+
+<script type="text/javascript">
+
+  
+  $(function() {
+  $('#cropbox').Jcrop({
+    onChange: update_crop,
+    onSelect: update_crop,
+    setSelect: [0, 0, 500, 500],
+    aspectRatio: 1
+  });
+});
+  
+  function update_crop(coords) {
+  $('#crop_x').val(coords.x);
+  $('#crop_y').val(coords.y);
+  $('#crop_w').val(coords.w);
+  $('#crop_h').val(coords.h);  
+}
+</script>

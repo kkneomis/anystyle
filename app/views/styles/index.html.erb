@@ -16,7 +16,7 @@
                 <div class="col-lg-3 col-md-3 col-sm-6">
                 	<div class="portfolio-columns">
                     <%= link_to(style,  "data-no-turbolink" => true) do %>                  
-                      <%= image_tag style.image1.url(:thumbnail) %>
+                      <%= cl_image_tag(style.image1,  :x => style.crop_x, :y => style.crop_y, :width => 250, :height => 250, :crop => :fill) %>
                     <div>
                       <br><br>
                     <h5><%= style.name %></h5>

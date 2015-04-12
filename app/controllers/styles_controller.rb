@@ -46,8 +46,9 @@ class StylesController < ApplicationController
     @style.user_id= current_user.id
     respond_to do |format|
       if @style.save
-        format.html { redirect_to @style, notice: 'Style was successfully created.' }
-        format.json { render :show, status: :created, location: @style }
+        #format.html { redirect_to @style, notice: 'Style was successfully created.' }
+        #format.json { render :show, status: :created, location: @style }
+        format.html { render :action => 'crop' }
       else
         format.html { render :new }
         format.json { render json: @style.errors, status: :unprocessable_entity }
@@ -87,7 +88,7 @@ class StylesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def style_params
-      params.require(:style).permit(:name, :description, :image1, :image2, :image3, :image4, :poster_id, :stylist_id)
+      params.require(:style).permit(:name, :description, :image1, :image2, :image3, :image4, :poster_id, :stylist_id, :crop_x, :crop_y, :crop_h, :crop_w)
     end
   
    def check_user
