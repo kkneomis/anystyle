@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
   
 
+  get 'galleries/top'
+
+  get 'galleries/random'
+
+  get 'stylists/top'
+
+  get 'stylists/random'
+
   resources :comments
 
   devise_for :users

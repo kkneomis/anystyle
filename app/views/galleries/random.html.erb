@@ -1,0 +1,40 @@
+    <section class="colon14">
+
+      <% @name="Random Hair Styles" %>       
+      
+
+
+        <!-- START CONTENT AND SIDEBAR -->
+        <div class="container general">
+            <div id="content" class="single col-lg-12 col-md-12 col-sm-12">
+
+                <div class="message text-center">
+                    <h2>The most recent hairstyles on <span>AnyStyle</span></h2>
+                </div>
+              
+  <% @styles.each do |style| %>    
+                <div class="col-lg-3 col-md-3 col-sm-6">
+                	<div class="portfolio-columns">
+                    <%= link_to(style,  "data-no-turbolink" => true) do %>                  
+                      <%= cl_image_tag(style.image1,  :x => style.crop_x, :y => style.crop_y, :width => 250, :height => 250, :crop => :fill) %>
+                    <div>
+                      <br><br>
+                    <h5><%= style.name %></h5>
+                    </div>
+                    <%end %>
+                   </div>
+                </div>
+    <% end %>            
+
+
+        </div><!-- end container -->
+         
+         <div class="text-center">      
+          <%= will_paginate @styles, renderer: BootstrapPagination::Rails %>  
+				    <div class="clearfix"></div> 
+          <%= link_to 'New Style', new_style_path, class:"btn btn-primary btn-lg text-center"%>
+        </div>  	
+    <!-- END CONTENT -->
+    
+	</section><!-- end colon1 -->
+
