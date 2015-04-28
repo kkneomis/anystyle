@@ -64,11 +64,12 @@ class StylesController < ApplicationController
   def update
     respond_to do |format|
    
-      if @style.update(style_params)
-        format.html { redirect_to @style, notice: 'Style was successfully updated.' }
-        format.json { render :show, status: :ok, location: @style }
+      if @style.update(style_params) && (@style.tag==true)
+        format.html { render :action => 'crop' }
+        
       elsif @style.update(style_params)
-         format.html { render :action => 'crop' }
+         format.html { redirect_to @style, notice: 'Style was successfully updated.' }
+        format.json { render :show, status: :ok, location: @style }
       else
         format.html { render :edit }
         format.json { render json: @style.errors, status: :unprocessable_entity }
@@ -94,7 +95,7 @@ class StylesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def style_params
-      params.require(:style).permit(:name, :description, :image1, :image2, :image3, :image4, :poster_id, :stylist_id, :crop_x, :crop_y, :crop_h, :crop_w, :total_votes, :phone, :stylist_name)
+      params.require(:style).permit(:name, :description, :image1, :image2, :image3, :image4, :poster_id, :stylist_id, :crop_x, :crop_y, :crop_h, :crop_w, :total_votes, :phone, :stylist_name, :tag)
     end
   
    def check_user
