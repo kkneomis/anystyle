@@ -12,7 +12,8 @@
 							<figure class="inverse">
                 <%if @user.image? %>
                  <%= cl_image_tag(@user.image.url(:thumbnail)) %>
-              
+               <%else %>
+                  <%= image_tag("http://res.cloudinary.com/bisonshare/image/upload/v1426705998/https_www.leanstartupmachine.com_images_default_profile_photo_hjtmyk.png") %>
                <%end %>
                 <hr>
                 <% if (user_signed_in?) && (current_user != @user) %>
@@ -79,26 +80,6 @@
   </ul>
               <hr>
               
-<ul class="buddy-activity">
-  		<li>
-          <h3 class="text-center"> Styles done by <%= @user.name %></h3>
-        <% Style.where(stylist: @user).each do |style| %>    
-                    <div class="col-lg-3 col-md-3 col-sm-6">
-                      <div class="portfolio-columns">
-                        <%= link_to(style,  "data-no-turbolink" => true) do %>                  
-                          <%= cl_image_tag(style.image1,  :x => style.crop_x, :y => style.crop_y, :width => style.crop_w, :height => style.crop_h, :crop => :crop) %>
-                        <div>
-                          <br><br>
-                        <h5><%= style.name %></h5>
-                        </div>
-                        <%end %>
-                       </div>
-                    </div>
-            <% end %>       
-				</li>
-
-		
-			</ul>
 
                       
     		<div class="clearfix"></div>
