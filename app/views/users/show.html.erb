@@ -10,8 +10,11 @@
                 	<div class="col-lg-3 col-md-3 col-sm-12">
 						<div class="buddy-group-blocks buddy-members">
 							<figure class="inverse">
-                <%= cl_image_tag(@user.image.url(:thumbnail)) %>
-                
+                <%if @user.image? %>
+                 <%= cl_image_tag(@user.image.url(:thumbnail)) %>
+               <%else %>
+                  <%= image_tag("http://res.cloudinary.com/bisonshare/image/upload/v1426705998/https_www.leanstartupmachine.com_images_default_profile_photo_hjtmyk.png") %>
+               <%end %>
                 <hr>
                 <% if (user_signed_in?) && (current_user != @user) %>
                   <% if current_user.following?(@user)%>
