@@ -11,8 +11,13 @@ class UsersController < ApplicationController
   end
   
   def feed
+    @followers=@user.followers
+    
+    @styles= Style.where(user: @followers).take(30)
+  end
+  
+  def interaction
     @activities = Activity.where(actor_id: @user.id)
-
   end
 
 

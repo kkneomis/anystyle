@@ -5,12 +5,12 @@
         <div class="container general">
             <div id="content" class="single-portfolio">
                 
-            	<div class="col-lg-4 col-md-4 col-sm-12">
+            	<div class="col-lg-6 col-md-6 col-sm-12">
                     <div id="myCarousel" class="carousel slide">
                       <div class="carousel-inner">
                         <!-- Slide 1 -->
                         <div class="item active">
-                          <%= cl_image_tag(@style.image1,  :x => @style.crop_x, :y => @style.crop_y, :width => @style.crop_w, :height => @style.crop_h, :crop => :crop) %>
+                          <%= cl_image_tag(@style.image1,  :x => @style.crop_x, :y => @style.crop_y, :width => @style.crop_w, :height => @style.crop_h, :crop => :crop, :id => "zoom") %>
                         </div>
                         
                       </div>
@@ -18,11 +18,20 @@
                     </div>  
                 </div> 
                 
-            	<div class="col-lg-8 col-md-8 col-sm-12">
+            	<div class="col-lg-6 col-md-6 col-sm-12">
                	<h2 class="general-title">
-                    	<h2><%= @style.name %></h2>
+                  <h2>
+                     <%= @style.name %> <br>
+                    <% if @style.stylist_id.nil? %>   
+                        <small>Hair done by <%= @style.stylist_name %> </small>
+                    <% else %>
+                    <small>Hair done by <%= link_to @style.stylist.name, @style.stylist %> </small>
+                    <% end %>
+                  
+                  </h2>
+                </h2>
                   <p>Posted by <%= link_to @style.user.name , @style.user %></p>
-                    </h2>
+                    
                     <p><%= @style.description %></p>
                     
              
@@ -39,6 +48,9 @@
                     <% end %>
                     <%= @style.votes_for.size%> likes
                 </p>
+                <% if @style.user == current_user %>
+                  <%= link_to "Edit", edit_style_path %>
+                <% end %>
                 <%= link_to "Back", styles_path %>
 					<hr> 
                 
@@ -76,3 +88,6 @@
                 
 	</section><!-- end colon14 -->
 
+<script>
+  $("#zoom").elevateZoom();
+</script>

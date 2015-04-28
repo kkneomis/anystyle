@@ -11,6 +11,7 @@
 						<div class="buddy-group-blocks buddy-members">
 							<figure class="inverse">
                 <%= cl_image_tag(@user.image.url(:thumbnail)) %>
+                
                 <hr>
                 <% if (user_signed_in?) && (current_user != @user) %>
                   <% if current_user.following?(@user)%>
@@ -29,7 +30,10 @@
                 	<div class="col-lg-9 col-md-9 col-sm-12">
 							<figcaption>
                 <h3><%= @user.name %></h3>
+                
                 <p><%= @user.bio %></p>
+                
+                
 							</figcaption>
 							</figure>
                     </div>
@@ -41,7 +45,8 @@
               <div class="col-sm-12 col-lg-12">
                 <div class="well">
                 	<ul>
-                    	<li><h5>Member Since <span class="label label-warning" data-effect="pop"><%= @user.created_at.strftime("%b, %Y") %></span></h5></li>
+                    	<li><h5>Followers<span class="label label-warning" data-effect="pop"> <%= @user.followers.count %></span>
+                   Following <span class="label label-warning" data-effect="pop"><%= @user.follows.count %></span></h5></li>
                     <li><h5>Posted<span class="label label-warning" data-effect="pop"><%= @user.styles.count %> </span>styles</h5></li>
                     <li><h5><%= link_to "View their Feed", feed_user_path(@user), method: :get %></h5></li>
                     </ul>
@@ -55,6 +60,27 @@
 				<li>
           <h3 class="text-center"> Styles shared by <%= @user.name %></h3>
           <% @user.styles.each do |style| %>    
+                    <div class="col-lg-3 col-md-3 col-sm-6">
+                      <div class="portfolio-columns">
+                        <%= link_to(style,  "data-no-turbolink" => true) do %>                  
+                          <%= cl_image_tag(style.image1,  :x => style.crop_x, :y => style.crop_y, :width => style.crop_w, :height => style.crop_h, :crop => :crop) %>
+                        <div>
+                          <br><br>
+                        <h5><%= style.name %></h5>
+                        </div>
+                        <%end %>
+                       </div>
+                    </div>
+            <% end %>       
+				</li>
+  
+  </ul>
+              <hr>
+              
+<ul class="buddy-activity">
+  		<li>
+          <h3 class="text-center"> Styles done by <%= @user.name %></h3>
+        <% Style.where(stylist: @user).each do |style| %>    
                     <div class="col-lg-3 col-md-3 col-sm-6">
                       <div class="portfolio-columns">
                         <%= link_to(style,  "data-no-turbolink" => true) do %>                  
@@ -92,7 +118,7 @@
 				</h2>
                 	<div class="buddy-members">
                     <ul>
-                           <li>  <% @user.find_voted_items.take(10).each do |style| %> 
+                      <li>  <% @user.find_voted_items.take(10).each do |style| %> 
                                
                                   <%= link_to cl_image_tag(style.image1), style %>
                               

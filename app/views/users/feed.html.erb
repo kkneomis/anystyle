@@ -5,7 +5,8 @@
       <% @name= @user.name + "'s Hair Feed" %>      
       <% end %>
 
-
+      
+      
         <!-- START CONTENT AND SIDEBAR -->
         <div class="container general">
             <div id="content" class="single col-lg-12 col-md-12 col-sm-12">
@@ -20,27 +21,21 @@
   
 
 
-
-    <% @activities.each do |activity| %>
-        <% if activity.action_type == "comment" %>
-          
-  <p><%= link_to image_tag(@user.image.url(:thumbnail), width: '50'), @user %> <%= link_to @user.name, @user %> commented "<%= activity.content %>" on <%= link_to image_tag(User.find_by(id: activity.receiver_id).image.url(:thumbnail), width: '50'), User.find_by(id: activity.receiver_id) %> <%= link_to User.find_by(id: activity.receiver_id).name, User.find_by(id: activity.receiver_id) %>'s <%= link_to "post", Style.find_by(id: activity.object_id) %></p>
-  
-        <% elsif activity.action_type == "like" %>
-            <p><%= link_to @user.name, @user %> liked <%= link_to User.find_by(id: activity.receiver_id).name, User.find_by(id: activity.receiver_id) %>'s <%= link_to "post", Style.find_by(id: activity.object_id) %></p>
-    
-        <% elsif activity.action_type == "follow" %>
-             <p> <%= link_to @user.name, @user %> <%= activity.action %> <%= link_to User.find_by(id: activity.receiver_id).name, User.find_by(id: activity.receiver_id) %> </p>
-        <% end %>
-
-      
-    <% end %>
-   </ul>
+<% @styles.each do |style| %>    
+                <div class="col-lg-3 col-md-3 col-sm-6">
+                	<div class="portfolio-columns">
+                    <%= link_to(style,  "data-no-turbolink" => true) do %>                  
+                      <%= cl_image_tag(style.image1,  :x => style.crop_x, :y => style.crop_y, :width => 250, :height => 250, :crop => :fill) %>
+                    <div>
+                      <br><br>
+                    <h5><%= style.name %></h5>
+                    </div>
+                    <%end %>
+                   </div>
+                </div>
+    <% end %>       
               
- 
 
-        </div><!-- end container -->
-         
   
     <!-- END CONTENT -->
     

@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   has_many :styles, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :activities
-  validates :name, :presence => true 
+  validates :name, :phone, :presence => true 
   
   acts_as_voter
   acts_as_follower

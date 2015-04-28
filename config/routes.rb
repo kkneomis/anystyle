@@ -20,6 +20,7 @@ Rails.application.routes.draw do
       put "follow", to: "users#follow"
       put "unfollow", to: "users#unfollow"
       get "feed", to: "users#feed"
+      get "interaction", to: "users#interaction"
     end
   end
    
@@ -38,12 +39,12 @@ Rails.application.routes.draw do
 
   
   get 'pages/about'
-
+  
+  
   get 'pages/contact'
 
   get 'pages/show'
   
-  get 'users/feed'
 
   get 'pages/gallery'
 

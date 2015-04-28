@@ -4,6 +4,8 @@ class Style < ActiveRecord::Base
   mount_uploader :image1, ImageUploader
   
   belongs_to :user
+  belongs_to :stylist, class_name: "User"
+  
   has_many :comments, dependent: :destroy
   has_many :activities
 

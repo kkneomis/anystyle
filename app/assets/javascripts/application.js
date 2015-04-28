@@ -31,6 +31,7 @@
 //= require jquery.Jcrop
 //= require jquery.Jcrop.min
 //= require cloudinary
+//= require jquery.elevatezoom
 // require bootstrap-sprockets
 //= require turbolinks 
 //= require_tree .

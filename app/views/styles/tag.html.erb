@@ -1,0 +1,47 @@
+<% @name= "Tagging a Stylist" %>
+ <section class="colon14">
+        <!-- START CONTENT AND SIDEBAR -->
+        <div class="container general">
+            <div id="content" class="single col-lg-12 col-md-12 col-sm-12 text-center">
+                <h2>Tag whoever did this hair</h2>
+              
+              
+<%= form_for @style do |f| %>
+<div class="row text-center">
+  
+      <div class="col-md-5">
+            <div class="form-group">  
+              <h3> Find them in this list </h3>
+              <select name="stylist_id">
+                  <option value=""><%= "Stylist not in this list" %></option>
+                 <%= User.where(phone: :phone).each do |user| %>
+                  <option value="<%= user.id %>" class="form-control"><%= user.name %></option>
+                <% end %>
+              </select>
+          </div>
+      </div>
+<div class="col-md-2">
+  <h1>OR</h1>
+</div>
+<div class="col-md-5">
+          <div class="form-group">  
+            <h3>Type their name here </h3>
+            <%= f.text_field :stylist_id, class:'form-control', placeholder: 'Enter the name of the hair stylist', required: true %>  
+          </div>
+</div>
+  
+</div>
+              <br>
+            <p class="text-center"><%= f.submit "Tag the Stylist", class:"btn btn-primary btn-lg"%>
+
+              </p>
+              <% end %>
+              
+              
+                 </div>  	
+    <!-- END CONTENT -->
+      </div>
+	</section><!-- end colon1 -->
+
+
+<script type="text/javascript">

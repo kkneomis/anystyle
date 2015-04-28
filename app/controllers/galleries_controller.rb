@@ -1,9 +1,9 @@
 class GalleriesController < ApplicationController
   def top
-     @styles = Style.paginate(:page => params[:page], :per_page => 12).order('created_at DESC')
+     @styles = Style.order(:total_votes => :desc ) 
   end
 
   def random
-    @styles = Style.random.paginate(:page => params[:page], :per_page => 12)
+    @styles= Style.all
   end
 end

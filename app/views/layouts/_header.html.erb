@@ -20,7 +20,7 @@
       <header class="header-wrapper">
 		<div class="container">
             	<div class="col-lg-2 col-md-2 col-sm-2">
-                   <a class="navbar-brand" href="/"><i class="fa fa-scissors"></i> AnyStyle</a>
+                   <a class="navbar-brand" href="/"><i class="fa fa-scissors"></i> Thomonique</a>
                 </div>
             	<div class="col-lg-10 col-md-10 col-sm-12">
                           <nav class="navbar navbar-default fhmm" role="navigation">
@@ -32,7 +32,7 @@
                                 <li><a href="/" ><i class="icon-home"></i> Home</a>
                                 </li><!-- end standard drop down -->
                                 <li><%= link_to "Hair Gallery", styles_path %></li>
-
+                                 
                                 <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Stylists <b class="caret"></b></a>
                                     <ul class="dropdown-menu" role="menu">
                                         <li><a href="#">Top Stylist</a></li>
@@ -42,8 +42,8 @@
                                 </li><!-- end standard drop down -->   
                                <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Styles <b class="caret"></b></a>
                                     <ul class="dropdown-menu" role="menu">
-                                        <li><a href="#">Top Styles</a></li>
-                                        <li><a href="#">Random Styles</a></li>
+                                      <li><%= link_to "Top Hairstyles", galleries_top_path %></li>
+                                      <li><%= link_to "Random Hairstyles", galleries_random_path %></li>
                                        
                                     </ul><!-- end dropdown-menu -->
                                 </li><!-- end standard drop down -->   

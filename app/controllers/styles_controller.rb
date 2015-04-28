@@ -15,6 +15,7 @@ class StylesController < ApplicationController
   
   def vote
     @style.liked_by current_user
+    @style.total_votes =@style.votes_for.size
     redirect_to @style
     activity= Activity.create(params[:activity])
     activity.actor_id = current_user.id
@@ -27,6 +28,7 @@ class StylesController < ApplicationController
   
   def unvote
     @style.unliked_by current_user
+    @style.total_votes=@style.votes_for.size
     redirect_to @style
   end
 
@@ -44,11 +46,12 @@ class StylesController < ApplicationController
   def create
     @style = Style.new(style_params)
     @style.user_id= current_user.id
+    @style.total_votes= 0
     respond_to do |format|
-      if @style.save
+      if @style.save 
         #format.html { redirect_to @style, notice: 'Style was successfully created.' }
         #format.json { render :show, status: :created, location: @style }
-        format.html { render :action => 'crop' }
+          format.html { render :action => 'crop' }
       else
         format.html { render :new }
         format.json { render json: @style.errors, status: :unprocessable_entity }
@@ -60,9 +63,12 @@ class StylesController < ApplicationController
   # PATCH/PUT /styles/1.json
   def update
     respond_to do |format|
+   
       if @style.update(style_params)
         format.html { redirect_to @style, notice: 'Style was successfully updated.' }
         format.json { render :show, status: :ok, location: @style }
+      elsif @style.update(style_params)
+         format.html { render :action => 'crop' }
       else
         format.html { render :edit }
         format.json { render json: @style.errors, status: :unprocessable_entity }
@@ -88,7 +94,7 @@ class StylesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def style_params
-      params.require(:style).permit(:name, :description, :image1, :image2, :image3, :image4, :poster_id, :stylist_id, :crop_x, :crop_y, :crop_h, :crop_w)
+      params.require(:style).permit(:name, :description, :image1, :image2, :image3, :image4, :poster_id, :stylist_id, :crop_x, :crop_y, :crop_h, :crop_w, :total_votes, :phone, :stylist_name)
     end
   
    def check_user
