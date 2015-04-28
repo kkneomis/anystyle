@@ -22,7 +22,7 @@
                	<h2 class="general-title">
                   <h2>
                      <%= @style.name %> <br>
-                    <% if @style.stylist_id.nil? %>   
+                    <% if @style.stylist_id=="" %>   
                         <small>Hair done by <%= @style.stylist_name %> </small>
                     <% else %>
                     <small>Hair done by <%= link_to @style.stylist.name, @style.stylist %> </small>
