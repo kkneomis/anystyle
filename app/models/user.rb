@@ -4,7 +4,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   
-  has_many :styles, dependent: :destroy
+  has_many :posts, class_name: "Style", foreign_key: "user_id"
+  has_many :styles, class_name: "Style", foreign_key: "stylist_id"
   has_many :comments, dependent: :destroy
   has_many :activities
   validates :name, :phone, :presence => true 
