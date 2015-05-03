@@ -1,6 +1,7 @@
 <section class="colon14">
   <% @name ="Post a Style" %>
   <% @style.update_attributes(:tag => true) %>     
+  
 <%= form_for(@style, :html => {:class => 'register-form'}) do |f| %>
   <% if @style.errors.any? %>
     <div id="error_explanation" class="alert alert-danger alert-dismissable">
@@ -42,6 +43,7 @@
                         
                       </div>
                       <div class="form-group">
+                        
                         <%= f.file_field :image1, class:'form-control', placeholder: 'Title' %>
                        </div>
                       <%= f.submit class:"btn btn-primary" %>
