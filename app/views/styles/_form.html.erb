@@ -1,5 +1,5 @@
 <section class="colon14">
-  <% @name ="Post a Style" %>
+  
   <% @style.update_attributes(:tag => true) %>     
   
 <%= form_for(@style, :html => {:class => 'register-form'}) do |f| %>
@@ -25,7 +25,7 @@
            
             
               <div class="col-sm-12 col-lg-10 col-lg-offset-3">
-                <p class="lead text-muted">Post a Style</p>
+                <p class="lead text-muted"><%= @name %></p>
                 <form class="form-horizontal">
                   <div class="form-group">
                     <div class="col-lg-10">
@@ -46,7 +46,14 @@
                         
                         <%= f.file_field :image1, class:'form-control', placeholder: 'Title' %>
                        </div>
-                      <%= f.submit class:"btn btn-primary" %>
+                      <% if @name =="Editing style" %>  
+                      <div class="form-group">
+                        <% f.label "Would you like to crop the image?" %>
+                        <%= f.select :tag, [["Yes", "true"], ["No", "false"]] , class: "form-control"  %>
+                      </div> 
+                      <% end %>  
+                      <%= f.submit "Continue", class:"btn btn-primary" %>
+                      
                       <br>
                       <%= link_to 'Back', styles_path %>
                     </div>

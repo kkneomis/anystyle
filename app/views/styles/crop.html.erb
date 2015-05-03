@@ -7,25 +7,20 @@
              <%= form_for @style do |f| %>
               <h2>Tagging the Stylist</h2>
               <br>
-              <h4>Select your stylist from this list</h4>
+              <h4>Select your stylist from this list (if found)</h4>
               
               
              <div class="row">
-                    <div class="col-md-4 col-md-offset-2">
-                          <% User.where(phone: @style.phone).each do |user| %>
-                          <h5><%= image_tag(user.image.url(:thumbnail), width:'50') %> <%= user.name %></h5>
-                          <% end %>
-                    </div>
-                    <div class="col-md-4">
+                    <div class="col-md-12">
                       
                       <%User.where(phone: @style.phone).each do |user| %>
-                      <%= f.select :stylist_id, [[user.name, user.id]] , :prompt => 'Select a category', class:"form-control", required: "true", class: "form-control"  %>
+                      <%= f.select :stylist_id, [[user.name, user.id]] , :prompt => 'Select a Stylist', class:"form-control", required: "true", class: "form-control"  %>
                           <% end %>
                     </div>
              </div>
                 
                 
-              <h4>Or Enter the Stylist's name</h4>
+              <h4>and Enter the Stylist's name</h4>
                
                   <div class="row">
                         <div class="col-md-4  col-md-offset-4"> 
@@ -36,7 +31,7 @@
               <br><br>
               <h2>Cropping The Image</h2>
              
-              <%= image_tag @style.image1.url, :id => "cropbox" %>
+              <%= image_tag @style.image1.url(:display), :id => "cropbox" %>
 
               
                 <%= f.hidden_field :crop_x, :id => "crop_x" %>
@@ -44,7 +39,7 @@
                 <%= f.hidden_field :crop_h, :id => "crop_h" %>
                 <%= f.hidden_field :crop_w, :id => "crop_w" %>
               <br>
-              <p><%= f.submit "Crop the Image!", class:"btn btn-primary btn-lg"%>
+              <p><%= f.submit "Submit the style!", class:"btn btn-primary btn-lg"%>
               
               
          
