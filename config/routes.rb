@@ -40,6 +40,9 @@ Rails.application.routes.draw do
   
   get 'pages/about'
   
+  get 'pages/weekly'
+  
+  get 'pages/monthly'
   
   get 'pages/contact'
 

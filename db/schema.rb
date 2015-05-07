@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150428155023) do
+ActiveRecord::Schema.define(version: 20150506195026) do
 
   create_table "activities", force: true do |t|
     t.integer  "actor_id"
@@ -68,6 +68,9 @@ ActiveRecord::Schema.define(version: 20150428155023) do
     t.string   "phone"
     t.string   "stylist_name"
     t.boolean  "tag"
+    t.boolean  "crop"
+    t.string   "address"
+    t.string   "position"
   end
 
   create_table "users", force: true do |t|

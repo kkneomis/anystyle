@@ -15,7 +15,7 @@ class StylesController < ApplicationController
   
   def vote
     @style.liked_by current_user
-    @style.total_votes =@style.votes_for.size
+    @style.total_votes = @style.votes_for.size
     redirect_to @style
     activity= Activity.create(params[:activity])
     activity.actor_id = current_user.id
@@ -47,6 +47,7 @@ class StylesController < ApplicationController
     @style = Style.new(style_params)
     @style.user_id= current_user.id
     @style.total_votes= 0
+    @style.position = request.remote_addr 
     respond_to do |format|
       if @style.save 
         #format.html { redirect_to @style, notice: 'Style was successfully created.' }
@@ -95,7 +96,7 @@ class StylesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def style_params
-      params.require(:style).permit(:name, :description, :image1, :image2, :image3, :image4, :poster_id, :stylist_id, :crop_x, :crop_y, :crop_h, :crop_w, :total_votes, :phone, :stylist_name, :tag)
+      params.require(:style).permit(:name, :description, :image1, :image2, :image3, :image4, :poster_id, :stylist_id, :crop_x, :crop_y, :crop_h, :crop_w, :total_votes, :phone, :stylist_name, :tag, :position)
     end
   
    def check_user

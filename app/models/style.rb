@@ -1,6 +1,8 @@
 class Style < ActiveRecord::Base
+  
   acts_as_votable
-   acts_as_mappable :auto_geocode=>{:field=>:address, :error_message=>'Could not geocode address'}
+  #acts_as_mappable :auto_geocode=>true
+  
   validates :name, :description, :presence => true
   mount_uploader :image1, ImageUploader
   

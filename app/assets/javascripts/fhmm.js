@@ -1,3 +1,7 @@
+$('[data-action=cheat]').click(function() {
+  $.getJSON('/geocode/', {query: $('#address').val()}, map.cheat)
+});
+
 /*
  * Project: FH Mega Menu
  * Author: Filiz ÖZER

@@ -27,4 +27,10 @@ class PagesController < ApplicationController
 
   def contest
   end
+  
+  def weekly
+  end
+  
+  def monthly
+  end
 end
