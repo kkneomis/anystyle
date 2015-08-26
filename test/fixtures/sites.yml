@@ -1,0 +1,43 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  subtitle: MyString
+  domain: MyString
+  subdomain: MyString
+  level: 1
+  address: MyString
+  city: MyString
+  state: MyString
+  zip: MyString
+  phone: MyString
+  headercarousel: 1
+  welcomemessage: MyString
+  services: 1
+  reviews: 1
+  reservations: 1
+  styles: 1
+  backgroundcolor: MyString
+  textcolor: MyString
+  hightlightcolor: MyString
+
+two:
+  title: MyString
+  subtitle: MyString
+  domain: MyString
+  subdomain: MyString
+  level: 1
+  address: MyString
+  city: MyString
+  state: MyString
+  zip: MyString
+  phone: MyString
+  headercarousel: 1
+  welcomemessage: MyString
+  services: 1
+  reviews: 1
+  reservations: 1
+  styles: 1
+  backgroundcolor: MyString
+  textcolor: MyString
+  hightlightcolor: MyString

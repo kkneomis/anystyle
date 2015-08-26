@@ -1,12 +1,11 @@
 Rails.application.routes.draw do
   
 
+  resources :sites
+
   get 'galleries/top'
-
   get 'galleries/random'
-
   get 'stylists/top'
-
   get 'stylists/random'
 
   resources :comments
@@ -15,7 +14,6 @@ Rails.application.routes.draw do
   
   resources :users do
     resources :activities
-    
     member do
       put "follow", to: "users#follow"
       put "unfollow", to: "users#unfollow"
@@ -29,32 +27,20 @@ Rails.application.routes.draw do
     member do
       put "like", to: "styles#vote"
       put "unlike", to: "styles#unvote"
-
     end
   end
   
-  
-      root 'pages#home'
-  
 
-  
   get 'pages/about'
-  
   get 'pages/weekly'
-  
   get 'pages/monthly'
-  
   get 'pages/contact'
-
   get 'pages/show'
-  
-
   get 'pages/gallery'
-
   get 'pages/form'
-
   get 'pages/contest'
-
+  
+  root 'pages#home'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
