@@ -24,6 +24,7 @@ gem 'bootstrap-sass', '~> 3.3.4'
 gem "acts_as_follower"
 gem 'geokit-rails'
 gem 'geocoder'
+gem 'font-awesome-rails' 
 
 group :production do
 

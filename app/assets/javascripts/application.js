@@ -17,23 +17,26 @@
 //= require bootstrap.min
 //= require countdown
 //= require fhmm
+//= require galleries
 // require grid
 //= require owl.carousel
 //= require jquery.easing.1.3
+//= require jquery.elevatezoom
 //= require jquery.flexslider-min
 //= require jquery.isotope.min
 //= require jquery.nivo.slider
 //= require jquery.prettyPhoto
+//= require jquery.themepunch.plugins.min.js
+//= require jquery.themepunch.revolution.min.js
 //= require jquery.transit.min
 //= require jquery.unveilEffects.min
 //= require Modernizr.custom
 //= require retina-1.1.0
-//= require jquery.Jcrop
 //= require jquery.Jcrop.min
 //= require cloudinary
 //= require jquery.elevatezoom
 // require bootstrap-sprockets
 //= require turbolinks 
-//= require_tree .
+
 
 
