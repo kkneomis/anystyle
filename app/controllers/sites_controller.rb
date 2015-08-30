@@ -1,6 +1,8 @@
 class SitesController < ApplicationController
   before_action :set_site, only: [:show, :edit, :update, :destroy]
 
+  caches_page :show 
+  
   respond_to :html
   
   layout 'customsite' 

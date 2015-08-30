@@ -25,6 +25,7 @@ gem "acts_as_follower"
 gem 'geokit-rails'
 gem 'geocoder'
 gem 'font-awesome-rails' 
+gem 'actionpack-page_caching' 
 
 group :production do
 
